@@ -8,8 +8,8 @@ class FAQ(models.Model):
     answer = RichTextField()
 
     async def get_translation(self, lang='en', field='question'):
-        cache_key = f'faq_{self.id}_{field}_{lang}'
-        cached_translation = cache.get(cache_key)
+        cached_key = f'faq_{self.id}_{field}_{lang}'
+        cached_translation = cache.get(cached_key)
 
         if cached_translation:
             return cached_translation
@@ -23,7 +23,7 @@ class FAQ(models.Model):
             print(f"Translation failed: {e}")
             return text_to_translate
 
-        cache.set(cache_key, translation_result, timeout=3600)
+        cache.set(cached_key, translation_result, timeout=3600)
         return translation_result
 
     def __str__(self):
