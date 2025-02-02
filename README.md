@@ -47,7 +47,7 @@ To get started with this project, follow the instructions below.
    Ensure you have `pip` installed. Run the following command to install all required packages:
 
    ```bash   
-pip install -r requirements.txt
+    pip install -r requirements.txt
    ```
 
 3. **Set Up Database:**
