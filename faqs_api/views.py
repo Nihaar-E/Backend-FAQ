@@ -34,6 +34,7 @@ def all_faqs(request):
 def specific_faq(request, pk):
     try:
         faq = FAQ.objects.get(pk=pk)
+        
     except FAQ.DoesNotExist:
         return Response({"error": "FAQ not found"}, status=status.HTTP_404_NOT_FOUND)
 
@@ -52,6 +53,7 @@ def specific_faq(request, pk):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
+        
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == "DELETE":

@@ -10,6 +10,7 @@ def test_faq_translation():
         question="What is Django?",
         answer="Django is a high-level Python web framework."
     )
+    
     assert faq.get_translation('hi', 'question') is not None
     assert faq.get_translation('bn', 'answer') is not None
 
